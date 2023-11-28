@@ -1,11 +1,12 @@
 #include <Arduino.h>
 #include "led-mgr.h"
+#include "pins.h"
 
 LEDMgr::LEDMgr()
 {
-    redPin = 3;
-    yellowPin = 4;
-    greenPin = 5;
+    redPin = LED_R_PIN;
+    yellowPin = LED_R_PIN;
+    greenPin = LED_G_PIN;
 
     pinMode(redPin, OUTPUT);
     pinMode(yellowPin, OUTPUT);

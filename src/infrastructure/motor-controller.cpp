@@ -1,11 +1,12 @@
 #include <Arduino.h>
 #include "motor-controller.h"
+#include "pins.h"
 
 MotorController::MotorController(int min, int max)
 {
 
-    pwmPin = 10;
-    brakePin = 9;
+    pwmPin = MOTOR_PWM_PIN;
+    brakePin = MOTOR_BREAK_PIN;
 
     minVal = min;
     maxVal = max;

@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "cover-sensor-mgr.h"
+#include "pins.h"
 
 void CoverSensorMgr::emitTrigger()
 {
@@ -31,8 +32,8 @@ bool CoverSensorMgr::IsOpen()
 
 CoverSensorMgr::CoverSensorMgr()
 {
-    this->trigPin = 7;
-    this->echoPin = 8;
+    this->trigPin = TRIG_PIN;
+    this->echoPin = ECHO_PIN;
 
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
