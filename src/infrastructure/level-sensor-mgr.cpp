@@ -7,9 +7,9 @@ bool LevelSensorMgr::IsFull()
     return digitalRead(this->outPin) == HIGH;
 }
 
-LevelSensorMgr::LevelSensorMgr(/* args */)
+LevelSensorMgr::LevelSensorMgr(int outPin)
 {
-    outPin = LEVEL_IN_PIN;
+    this->outPin = outPin;
 }
 
 LevelSensorMgr::~LevelSensorMgr()

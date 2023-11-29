@@ -4,7 +4,7 @@ private:
     int outPin;
 public:
     bool IsFull();
-    LevelSensorMgr(/* args */);
+    LevelSensorMgr(int outPin);
     ~LevelSensorMgr();
 };
 

@@ -30,10 +30,10 @@ bool CoverSensorMgr::IsOpen()
     }
 }
 
-CoverSensorMgr::CoverSensorMgr()
+CoverSensorMgr::CoverSensorMgr(int trigPin, int echoPin)
 {
-    this->trigPin = TRIG_PIN;
-    this->echoPin = ECHO_PIN;
+    this->trigPin = trigPin;
+    this->echoPin = echoPin;
 
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);

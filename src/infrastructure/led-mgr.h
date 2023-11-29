@@ -9,7 +9,7 @@ private:
 public:
     void Off();
     void Write(bool red, bool yellow, bool green);
-    LEDMgr(/* args */);
+    LEDMgr(int redPin, int yellowPin, int greenPin);
     ~LEDMgr();
 };
 

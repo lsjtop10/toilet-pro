@@ -11,7 +11,7 @@ private:
 public:
     bool IsOpen();
 
-    CoverSensorMgr();
+    CoverSensorMgr(int trigPin, int echoPin);
     ~CoverSensorMgr();
 };
 
