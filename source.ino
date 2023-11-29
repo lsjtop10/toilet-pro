@@ -19,14 +19,64 @@ MotorController motor = MotorController(0,255);
 
 const int MotorEnableTime = 10*1000;
 
+void testLevelSensor();
+void testCoverSensor();
+void testLEDs();
+
 void setup()
 {
     Serial.begin(9600);
+    pinMode(13,OUTPUT);
 }
+
+void testMotor()
+{
+   motor.Off();
+
+   motor.On(25);
+   delay(5000);
+
+   motor.Off();
+}
+
+void testLevelSensor()
+{
+    digitalWrite(13,LOW);
+
+    if(levelSensor.IsFull())
+    {
+        digitalWrite(13,HIGH);
+        delay(500);
+    }
+}
+
+void testCoverSensor()
+{
+    digitalWrite(13,LOW);
+
+    if(coverSensor.IsOpen())
+    {
+        digitalWrite(13,HIGH);
+        delay(500);
+    }
+}
+
+void testLEDs()
+{
+    led.Off();
+    led.Write(true,false,false);
+    delay(1000);
+    led.Write(false,true,false);
+    delay(1000);
+    led.Write(true,false,true);
+    delay(1000);
+}
+
 
 //domain logic
 void loop()
-{
+{   
+
     if(!coverSensor.IsOpen() && levelSensor.IsFull())
     {
         delay(5*1000);
