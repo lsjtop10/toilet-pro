@@ -2,7 +2,7 @@
 #include <TimerOne.h>
 #include <MsTimer2.h>
 #include "motor-controller.h"
-#include "pins.h"
+
 
 MotorController::MotorController(int pwmPin, int breakPin)
 {

@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include "cover-sensor-mgr.h"
-#include "pins.h"
 
 void CoverSensorMgr::emitTrigger()
 {
