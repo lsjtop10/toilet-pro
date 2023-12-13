@@ -1,5 +1,15 @@
 #include <Arduino.h>
 #include "cover-sensor-mgr.h"
+#include "../debug.h"
+
+CoverSensorMgr::CoverSensorMgr(int trigPin, int echoPin)
+{
+    this->trigPin = trigPin;
+    this->echoPin = echoPin;
+
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
+}
 
 void CoverSensorMgr::emitTrigger()
 {
@@ -17,9 +27,11 @@ bool CoverSensorMgr::IsOpen()
     emitTrigger();
 
     duration = pulseIn (echoPin, HIGH);
-    distance = duration * 17 / 1000; 
+    distance = ((340 * duration) / 10000) / 2; 
 
-    if(distance > 20)
+    debug(Serial.println(distance));
+
+    if(distance < threshold)
     {
         return true;
     }
@@ -29,14 +41,6 @@ bool CoverSensorMgr::IsOpen()
     }
 }
 
-CoverSensorMgr::CoverSensorMgr(int trigPin, int echoPin)
-{
-    this->trigPin = trigPin;
-    this->echoPin = echoPin;
-
-    pinMode(trigPin, OUTPUT);
-    pinMode(echoPin, INPUT);
-}
 
 CoverSensorMgr::~CoverSensorMgr()
 {
