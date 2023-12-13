@@ -7,9 +7,9 @@
 MotorController::MotorController(int pwmPin, int breakPin)
 {
 
-    pwmPin = pwmPin;
-    brakePin = breakPin;
-    slope = 8;
+    this->pwmPin = pwmPin;
+    this->brakePin = breakPin;
+    this->slope = 8;
 
     limit = 50;
 
@@ -36,12 +36,12 @@ MotorController::~MotorController()
 void MotorController::flash()
 {
     if(duty < dutyRef) duty++;
-    Timer1.setPwmDuty(pwmPin, duty); //PWM, Duty
+    Timer1.setPwmDuty(this->pwmPin, duty); //PWM, Duty
 }
 
 void MotorController::On(int power)
 {
-    if ( 0 <= power && power <= 100)
+    if ( 0 < power && power > 100)
     {
         return;
     }
@@ -64,6 +64,6 @@ void MotorController::On(int power)
 void MotorController::Off()
 {
     digitalWrite(brakePin, HIGH);
-
+    digitalWrite(pwmPin, LOW);
     MsTimer2::stop();
 }

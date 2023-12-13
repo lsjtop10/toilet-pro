@@ -15,6 +15,7 @@ private:
     int dutyRef;
 
     void flash();
+    
 public:
    
     /// @brief turn on the motor
